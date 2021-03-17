@@ -38,14 +38,14 @@ bookmark = driver.find_element_by_xpath('//*[@id="react-root"]/div/div/div[2]/he
 bookmark.click()
 time.sleep(3)
 
-def scroll_down():
-  	#ページの高さを取得
-        height = driver.execute_script("return document.body.scrollHeight")
-    # while True:
-    #     for x in range(1,height):
-    #         driver.execute_script("window.scrollTo(0, "+str(x*2)+");")
-    #         height = driver.execute_script("return document.body.scrollHeight")
-    #     break
+#ボツ
+# def scroll_down():
+#         height = driver.execute_script("return document.body.scrollHeight")
+#     while True:
+#         for x in range(1,height):
+#             driver.execute_script("window.scrollTo(0, "+str(x*2)+");")
+#             height = driver.execute_script("return document.body.scrollHeight")
+#         break
 
 def scroll_down_2():
     SCROLL_PAUSE_TIME = 2
@@ -59,15 +59,15 @@ def scroll_down_2():
         if new_height == last_height:
             print('Reached')
             break
-    
-def scroll_down_3():
-    i = 1
-    height = driver.excute_script("return document.body.scrollHeight")
-    while True:
-        for x in range(i, height):
-            driver.execute_script("window.scrollTo(0, "+str(x*2)+");")
-            i = i*2
-        height = driver.excute_script("return document.body.scrollHeight")
+#ボツ
+# def scroll_down_3():
+#     i = 1
+#     height = driver.excute_script("return document.body.scrollHeight")
+#     while True:
+#         for x in range(i, height):
+#             driver.execute_script("window.scrollTo(0, "+str(x*2)+");")
+#             i = i*2
+#         height = driver.excute_script("return document.body.scrollHeight")
 
 scroll_down_2()
 
