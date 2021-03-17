@@ -40,29 +40,37 @@ time.sleep(3)
 
 def scroll_down():
   	#ページの高さを取得
-    height = driver.execute_script("return document.body.scrollHeight")
-    #最後までスクロールすると長いので、半分の長さに割る。	
-	#ループ処理で少しづつ移動
-    for x in range(1,height):
-        driver.execute_script("window.scrollTo(0, "+str(x+50)+");")
+    while True:
+        height = driver.execute_script("return document.body.scrollHeight")
+        for x in range(1,height):
+            driver.execute_script("window.scrollTo(0, "+str(x*2)+");")
+            height = driver.execute_script("return document.body.scrollHeight")
 
 
-scroll_down()
+
 def scroll_down_2():
     SCROLL_PAUSE_TIME = 2
     last_height = driver.execute_script("return document.body.scrollHeight")
-
     while True:
         # Scroll down to bottom
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
-        # Wait to load page
-        time.sleep(SCROLL_PAUSE_TIME)
+        driver.execute_script("window.scrollTo(0, "+str(x*2)+");")
+
         # Calculate new scroll height and compare with last scroll height
         new_height = driver.execute_script("return document.body.scrollHeight")
+
         # break condition
         if new_height == last_height:
             break
-        last_height = new_height
-# scroll_down_2()
+def scroll_down_3():
+    i = 1
+    height = driver.excute_script("return document.body.scrollHeight")
+    while True:
+        for x in range(i, height):
+            driver.execute_script("window.scrollTo(0, "+str(x*2)+");")
+            i = i*2
+        height = driver.excute_script("return document.body.scrollHeight")
+
+scroll_down_3()
+
 time.sleep(3)
 driver.quit()
